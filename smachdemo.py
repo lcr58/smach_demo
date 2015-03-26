@@ -106,11 +106,11 @@ def main():
     with sm:
         # Add states to the container
         smach.StateMachine.add('Search', Search(),
-                               transitions={'found':'Drive'}
+                               transitions={'found':'Drive'},
                                remapping={'x_out':'sm_x',
                                           'y_out':'sm_y'})
         smach.StateMachine.add('Drive', Drive(),
-                               transitions={'here':'done'}
+                               transitions={'here':'done'},
                                remapping={'x_in':'sm_x',
                                           'y_in':'sm_y'})
                                           
@@ -118,7 +118,7 @@ def main():
     outcome = sm.execute()
     
     
-if __name__ == '__main__'
+if __name__ == '__main__':
     main()
 
 
